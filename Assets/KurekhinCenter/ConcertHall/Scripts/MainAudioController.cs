@@ -112,37 +112,38 @@ public class MainAudioController : UdonSharpBehaviour
     }
     public override void OnPlayerTriggerEnter(VRCPlayerApi localplayer)
     {
-
-        //if (Networking.IsClogged == false && Networking.IsNetworkSettled == true) //make sure network is ready
+        if (localplayer.isLocal)
         {
-            if (Networking.IsOwner(gameObject) == false)
+            //if (Networking.IsClogged == false && Networking.IsNetworkSettled == true) //make sure network is ready
             {
-                Networking.SetOwner(localplayer, gameObject);
-            }
-
-            if (Networking.IsOwner(gameObject) == true)
-            {
-                onStage = true;
-                Debug.Log("Player enter in audio boost zone");
-                if (localplayer.isLocal)
-                {                     
-
-                    if (localPlayerID == amplifyID) 
-                    {
-                        Debug.Log("ID already matches amplifyID, forcing sync");
-                        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "SetVoiceHigh");
-                        Debug.Log("Player voice did increased");
-                        boosted = true;
-                    }
-                    else
-                    {
-                        amplifyID = localPlayerID;
-                        Debug.Log("Setting AmplifyID to " + amplifyID);
-                        RequestSerialization();
-                    }
+                if (Networking.IsOwner(gameObject) == false)
+                {
+                    Networking.SetOwner(localplayer, gameObject);
                 }
 
-                
+                if (Networking.IsOwner(gameObject) == true)
+                {
+                    onStage = true;
+                    Debug.Log("Player enter in audio boost zone");
+                    
+
+                        if (localPlayerID == amplifyID)
+                        {
+                            Debug.Log("ID already matches amplifyID, forcing sync");
+                            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "SetVoiceHigh");
+                            Debug.Log("Player voice did increased");
+                            boosted = true;
+                        }
+                        else
+                        {
+                            amplifyID = localPlayerID;
+                            Debug.Log("Setting AmplifyID to " + amplifyID);
+                            RequestSerialization();
+                        }
+                    
+
+
+                }
             }
         }
              
@@ -151,8 +152,10 @@ public class MainAudioController : UdonSharpBehaviour
 
     public override void OnPlayerTriggerExit(VRCPlayerApi localplayer)
     {
-        //if (Networking.IsClogged == false && Networking.IsNetworkSettled == true) //make sure network is ready
+        if (localplayer.isLocal)
         {
+            //if (Networking.IsClogged == false && Networking.IsNetworkSettled == true) //make sure network is ready
+            {
             if (Networking.IsOwner(gameObject) == false)
             { 
                 Networking.SetOwner(localplayer, gameObject);
@@ -177,8 +180,7 @@ public class MainAudioController : UdonSharpBehaviour
                 else
                 {
 
-                    if (localplayer.isLocal)
-                    {
+                    
 
                         if (localPlayerID == noAmplifyID)
                         {
@@ -193,11 +195,12 @@ public class MainAudioController : UdonSharpBehaviour
                             Debug.Log("Setting AmplifyID to " + noAmplifyID);
                             RequestSerialization();
                         }
-                    }
+                    
                 }
             }
         }
-                
+        }
+
     }
 
     public void _OnVolumeChange()

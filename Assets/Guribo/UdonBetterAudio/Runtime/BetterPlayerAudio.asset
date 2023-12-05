@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: BetterPlayerAudio
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: f9aad272cdca5b948a5748735ad8f46c,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: f3dd147105594a04fa381f7e4db3f630,
     type: 2}
   udonAssembly: 
   assemblyError: 

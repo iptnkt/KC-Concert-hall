@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: UISLiders
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 79c475930f729f5489b14ae07f7963f7,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 501f4d9b2bf84ef49bd8180c9b985e57,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export ParName\r\n    .export Animator\r\n   
     .export Slider\r\n    .export Sync\r\n    .sync Sync, smooth\r\n    \r\n    __player_0:

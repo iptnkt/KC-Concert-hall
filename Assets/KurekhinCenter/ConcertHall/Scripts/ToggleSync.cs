@@ -25,7 +25,7 @@ namespace VRCAudioLink
             if (Networking.IsOwner(gameObject))
                 RequestSerialization();
         }
-
+         
         public override void OnDeserialization()
         {
             deserializing = true;

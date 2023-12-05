@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: LampInHandInclude
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 5fa7e9ee8661cfa48887f1ca377b7b4c,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 29e764412b1f8b749b6a82669619d1c7,
     type: 2}
   udonAssembly: 
   assemblyError: 

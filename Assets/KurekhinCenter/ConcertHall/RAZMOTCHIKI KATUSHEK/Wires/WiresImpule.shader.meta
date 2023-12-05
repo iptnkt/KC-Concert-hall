@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 8f46f1c1f101f6a47af3dbf64fb721eb
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _dirtywickerweave1normalogl: {fileID: 2800000, guid: c43190aaaa0229246a36afaa53bd6f4f,
+      type: 3}
+  - _dirtywickerweave1ao: {fileID: 2800000, guid: e2c9b6a15a0a9f84886210adc952fbc0,
+      type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: VoiceOverrideTriggerZone
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 60a52fb2f9a5d60409d4c1873a915416,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 35ba150313893f843a2d764f4f8d65ce,
     type: 2}
   udonAssembly: 
   assemblyError: 

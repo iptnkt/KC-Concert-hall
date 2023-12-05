@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: AutoPlayerRange
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: cc247a53116e59c4fa53378267ef7891,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: d85e57b1492c9d14da00cb1233f973a6,
     type: 2}
   udonAssembly: 
   assemblyError: 

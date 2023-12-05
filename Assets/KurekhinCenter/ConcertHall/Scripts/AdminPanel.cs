@@ -23,6 +23,8 @@ public class AdminPanel : UdonSharpBehaviour
     public GameObject presentationTab;
     public Button accesability;
     public GameObject accesabilityTab;
+    public Button dancerPlace;
+    public GameObject dancerPlaceTab;   
 
     [Header("Other")]
     public GameObject mainAdminPanelHolder;
@@ -80,34 +82,44 @@ public class AdminPanel : UdonSharpBehaviour
         teleportsTab.SetActive(true);
         presentationTab.SetActive(false);
         accesabilityTab.SetActive(false);
+        dancerPlaceTab.SetActive(false);
     }
     public void ChangeToPresentationTab()
     {
         teleportsTab.SetActive(false);
         presentationTab.SetActive(true);
         accesabilityTab.SetActive(false);
+        dancerPlaceTab.SetActive(false);
     }
     public void ChangeToAccesabilityTab()
     {
         teleportsTab.SetActive(false);
         presentationTab.SetActive(false);
         accesabilityTab.SetActive(true);
+        dancerPlaceTab.SetActive(false);
+    }
+    public void ChangeToDancerPlaceTab()
+    {
+        teleportsTab.SetActive(false);
+        presentationTab.SetActive(false);
+        accesabilityTab.SetActive(false);
+        dancerPlaceTab.SetActive(true);
     }
 
-    /*
-    public void attachLockalPlayer()
-    {
-        if(attatchToLockalPlayer.isOn)
+        /*
+        public void attachLockalPlayer()
         {
-          //  mainPickUp.transform.SetParent(Networking.LocalPlayer.gameObject.transform);
-        }
-        else
-        {
-            mainPickUp.transform.SetParent(staffTablet.transform);
-        }
-    }*/
+            if(attatchToLockalPlayer.isOn)
+            {
+              //  mainPickUp.transform.SetParent(Networking.LocalPlayer.gameObject.transform);
+            }
+            else
+            {
+                mainPickUp.transform.SetParent(staffTablet.transform);
+            }
+        }*/
 
-    private void Update()
+        private void Update()
     {
         if (attatchToLockalPlayer.isOn)
         {

@@ -23,8 +23,16 @@ public class LampInHandInclude : UdonSharpBehaviour
         syncedValue = lampState;
         deserializing = false;
 
-        if (Networking.IsOwner(gameObject))
+        if (Networking.IsOwner(gameObject) == false)
+        {
+            Networking.SetOwner(localPlayer, gameObject);
+        }
+        if (Networking.IsOwner(gameObject) == true)
+        {
             RequestSerialization();
+        }
+        
+            
     }
 
     public override void OnDeserialization()

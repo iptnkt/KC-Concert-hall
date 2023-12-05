@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: UIToggleButton
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 735f15dfc9ea7cd48a4a3a226c488a44,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: b3f7b107ade6a854d89c9dd14a74f5d2,
     type: 2}
   udonAssembly: 
   assemblyError: 
