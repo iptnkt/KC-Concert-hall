@@ -76,12 +76,14 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DistanceBeetwen: 1
-    - _DistanceBeetwenImpulses: 3
+    - _DistanceBeetwenImpulses: 2
     - _DstBlend: 0
-    - _Float0: 1
+    - _Float0: 104.79
     - _GlossMapScale: 1
     - _Glossiness: 0.814
     - _GlossyReflections: 1
+    - _Lengt: 104.79
+    - _Length: 20
     - _Metalic: 0.472
     - _Metallic: 0.06
     - _Mode: 0
@@ -96,7 +98,8 @@ Material:
     - __dirty: 0
     - _scaleTIme: 2
     m_Colors:
+    - _AlbedoColor: {r: 0.23584893, g: 0.23584893, b: 0.23584893, a: 0}
     - _Color: {r: 0.14899999, g: 0.14899999, b: 0.14899999, a: 1}
-    - _Color0: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 0}
+    - _Color0: {r: 0.23584902, g: 0.23584902, b: 0.23584902, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ImpulseColor: {r: 1, g: 0, b: 0, a: 0}
+    - _ImpulseColor: {r: 2.1185474, g: 0, b: 0, a: 0}

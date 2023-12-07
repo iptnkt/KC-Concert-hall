@@ -6,19 +6,23 @@ using VRC.Udon;
 
 public class TeslaCoilLamp : UdonSharpBehaviour
 {
-    public Material lightWire;
-    public Material darkWire;
+    public Material lightState;
+    public Material darkState;
     public GameObject partSys;
+    public int materialIndex;
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "ParticlesTrigger")
         {
             var mat = this.gameObject.GetComponent<Renderer>().materials;
-            mat[3] = lightWire; 
+            mat[materialIndex] = lightState; 
 
             this.gameObject.GetComponent<Renderer>().materials = mat;
 
-            partSys.SetActive(true);
+            if (partSys != null)
+            {
+                partSys.SetActive(true);
+            }
         }
     }
 
@@ -27,11 +31,14 @@ public class TeslaCoilLamp : UdonSharpBehaviour
         if (other.gameObject.name == "ParticlesTrigger")
         {
             var mat = this.gameObject.GetComponent<Renderer>().materials;
-            mat[3] = darkWire;
+            mat[materialIndex] = darkState;
 
             this.gameObject.GetComponent<Renderer>().materials = mat;
 
-            partSys.SetActive(false);
+            if (partSys != null)
+            {
+                partSys.SetActive(false); 
+            }
         }
     }
 }

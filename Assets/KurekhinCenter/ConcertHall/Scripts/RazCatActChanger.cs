@@ -30,7 +30,10 @@ public class RazCatActChanger : UdonSharpBehaviour
 
     //public Material[] containerMaterials;
 
-
+    public Texture[] sovietPosters;
+    public Material postersMat;
+    public Material simpleBeton;
+    private GameObject[] panel = new GameObject[68];
 
     public MainAppratController mainController;
     public Animator ceilAnim;
@@ -79,6 +82,11 @@ public class RazCatActChanger : UdonSharpBehaviour
         if (Networking.IsOwner(gameObject))
             RequestSerialization();
 
+        for (int i = 0; i < mainController.panel.Length; i++)
+        {
+            panel[i] = mainController.panel[i]; 
+        }
+        postersMat.SetTexture("_Tex", sovietPosters[1]);
     }
 
     public override void OnDeserialization()
@@ -218,8 +226,10 @@ public class RazCatActChanger : UdonSharpBehaviour
         mainController.panelHue.value = 1;
         mainController.panelLightMode.value = 1;
 
+        ceilAnim.Play("Idle");
         wallsAnim.Play("RazCatActWires");
 
+        mainController.includePostProc.isOn = false;
         transitPostProc.SetActive(true);
         SendCustomEventDelayedSeconds("SwitchOffTransit", timeSwitchOffTransit);
                 
@@ -261,8 +271,10 @@ public class RazCatActChanger : UdonSharpBehaviour
 
         mainController.panelLightMode.value = 0;
 
+        ceilAnim.Play("Idle");
         wallsAnim.Play("Idle");
 
+        mainController.includePostProc.isOn = false;
         transitPostProc.SetActive(true);
         SendCustomEventDelayedSeconds("SwitchOffTransit", timeSwitchOffTransit);
     }
@@ -301,13 +313,28 @@ public class RazCatActChanger : UdonSharpBehaviour
         }
 
         mainController.panelLightMode.value = 0;
-        ceilAnim.Play("JastOff");
-        wallsAnim.Play("RazCatActBuildings");
 
+        ceilAnim.Play("JastOff");
+        wallsAnim.Play("OpenAndClose");
+
+        for (int i = 0; i < panel.Length; i++)
+        {
+            Material[] mat =  panel[i].GetComponent<Renderer>().materials;
+            mat[1] = postersMat;
+            panel[i].GetComponent<Renderer>().materials = mat;
+        }
+
+        mainController.includePostProc.isOn = false;
         transitPostProc.SetActive(true);
         SendCustomEventDelayedSeconds("SwitchOffTransit", timeSwitchOffTransit);
     }
 
+    public void TimeToChangePoster()
+    {
+        int rand = Random.Range(0, 19);
+        postersMat.SetTexture("_Tex", sovietPosters[rand]);
+
+    }
     public void StartActFour()
     {
         
@@ -341,8 +368,17 @@ public class RazCatActChanger : UdonSharpBehaviour
         }
 
         ceilAnim.Play("CeilOpeningWithRazmotchik");
-
         wallsAnim.Play("Idle");
+
+        for (int i = 0; i < panel.Length; i++)
+        {
+            Material[] mat = panel[i].GetComponent<Renderer>().materials;
+            mat[1] = simpleBeton;
+            panel[i].GetComponent<Renderer>().materials = mat;
+        }
+
+        mainController.includePostProc.isOn = false;
+
 
         transitPostProc.SetActive(true);
         SendCustomEventDelayedSeconds("SwitchOffTransit", timeSwitchOffTransit);
@@ -350,6 +386,10 @@ public class RazCatActChanger : UdonSharpBehaviour
 
     public void LavaReady()
     {
+        mainController.postProcHue.value = 0.02f;
+        mainController.postProcPower.value = 0.15f;
+        mainController.postProcSaturate.value = 0.5f;
+        mainController.includePostProc.isOn = true;
         transitPostProc.SetActive(true);
         mainController.panelHue.value = 0.05f;
         mainController.panelLightMode.value = 3;
@@ -393,8 +433,14 @@ public class RazCatActChanger : UdonSharpBehaviour
 
         mainController.panelLightMode.value = 0;
 
-        ceilAnim.SetBool("Ceil", true);
+        ceilAnim.Play("CeilClosing");
         wallsAnim.Play("Idle");
+
+        mainController.postProcHue.value = 0.55f;
+        mainController.postProcPower.value = 0f;
+        mainController.postProcSaturate.value = 0.5f;
+        mainController.includePostProc.isOn = true;
+        
 
         transitPostProc.SetActive(true);
         SendCustomEventDelayedSeconds("SwitchOffTransit", timeSwitchOffTransit);

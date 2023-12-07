@@ -19,14 +19,21 @@ public class Lift : UdonSharpBehaviour
     public override void Interact()
     {        
         if (!arrive) return;
+        
+
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All,"LiftMove");
+    }
+     
+    public void LiftMove()
+    {
         arrive = false;
         if (directionUp)
         {
             //anim.SetBool("MoveUp", true);
             anim.Play("Up");
             Debug.Log("Lift move Up");
-            directionUp =false;
-            
+            directionUp = false;
+
         }
         else
         {
@@ -36,7 +43,6 @@ public class Lift : UdonSharpBehaviour
             directionUp = true;
         }
     }
-     
     public void Arrive()
     {
         arrive = true;

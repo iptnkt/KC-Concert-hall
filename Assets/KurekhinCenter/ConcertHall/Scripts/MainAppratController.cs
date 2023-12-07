@@ -88,7 +88,7 @@ public class MainAppratController : UdonSharpBehaviour
         _IncludeProjectors();
         _projectorTargetChange();
 
-
+        
     }
 
 
@@ -127,6 +127,15 @@ public class MainAppratController : UdonSharpBehaviour
         panelAnimator.SetInteger("PanelAnimtion", panelAnims.value);
     }
 
+    public void PanelBackChange()
+    {
+        for (int i = 0; i < panel.Length; i++)
+        { 
+            
+            Material[] mats =  panel[i].GetComponent<Renderer>().materials;
+            
+        }
+    }
     //Projectors GROUP
     public void _OnProjectorColorChange()
     {
@@ -149,7 +158,7 @@ public class MainAppratController : UdonSharpBehaviour
         blickMateral.SetFloat("_ProjectionFadeCurve", projectorsBlickHarsh.value);
     }
 
-    public void _ProjectorAudioLink(    )
+    public void _ProjectorAudioLink( )
     {
         for (int i = 0; i < projectors.Length; i++)
         {

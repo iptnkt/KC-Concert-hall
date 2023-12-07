@@ -72,7 +72,7 @@ public class LampOnTableIncluder : UdonSharpBehaviour
     public void LampIncludingON()
     {
         particles.SetActive(true);
-        connector.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 0);
+        connector.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 100);
         var mat = lamp.gameObject.GetComponent<Renderer>().materials;
         mat[3] = lightWire;
 
@@ -81,7 +81,7 @@ public class LampOnTableIncluder : UdonSharpBehaviour
     public void LampIncludingOff()
     {
         particles.SetActive(false);
-        connector.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 100);
+        connector.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 0);
         var mat = lamp.gameObject.GetComponent<Renderer>().materials;
         mat[3] = darkWire;
         lamp.gameObject.GetComponent<Renderer>().materials = mat;

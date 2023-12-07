@@ -8,9 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LIghtWire
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 75b202cd6c96bf144b1ad251052c51e7, type: 3}
   m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 2
+  m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AudioFallbackTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -55,23 +59,72 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AudioHueShift: 0
+    - _AutogainDerate: 0.1
+    - _BPM: 128
+    - _Band: 2
+    - _BandMode: 0
+    - _Bass: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _Delay: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Emission: 10
+    - _EnableAutogain: 1
+    - _EnableFallback: 0
+    - _FadeExpFalloff: 0.3
+    - _FadeLength: 0.8
+    - _Gain: 1
+    - _GlobalStrength: 1
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1
+    - _HueAudioStrength: 0
+    - _HueShift: 0
+    - _HueSpeed: 0.185
     - _Metallic: 0
     - _Mode: 0
+    - _Note: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Pulse: 0
+    - _PulseRotation: 0
+    - _RimEffect: 1
+    - _Saturation: 0.439
+    - _SaturationAudioStrength: 0.446
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
+    - _SourceDistance: 1
+    - _SourceSpatialBlend: 0
+    - _SourceVolume: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _ThemeColorMode: 0
+    - _Threshold0: 0.45
+    - _Threshold1: 0.45
+    - _Threshold2: 0.45
+    - _Threshold3: 0.45
+    - _Treble: 1
     - _UVSec: 0
+    - _Width: 1
+    - _X0: 0.25
+    - _X1: 0.25
+    - _X2: 0.5
+    - _X3: 0.75
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 0, a: 1}
+    - _Color: {r: 0.4716981, g: 0.3143623, b: 0, a: 1}
+    - _CustomThemeColor0: {r: 1, g: 1, b: 0, a: 1}
+    - _CustomThemeColor1: {r: 0, g: 0, b: 1, a: 1}
+    - _CustomThemeColor2: {r: 1, g: 0, b: 0, a: 1}
+    - _CustomThemeColor3: {r: 0, g: 1, b: 0, a: 1}
+    - _Emission: {r: 1, g: 0.35239166, b: 0, a: 1}
     - _EmissionColor: {r: 11.984314, g: 3.137255, b: 0, a: 1}
+    - _RimEdge: {r: 1, g: 1, b: 1, a: 1}
+    - _SourcePosition: {r: 0, g: 0, b: 0, a: 0}
