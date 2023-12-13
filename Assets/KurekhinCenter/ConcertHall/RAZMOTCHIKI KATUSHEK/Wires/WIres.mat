@@ -83,14 +83,14 @@ Material:
     - _Glossiness: 0.814
     - _GlossyReflections: 1
     - _Lengt: 104.79
-    - _Length: 20
+    - _Length: 40
     - _Metalic: 0.472
     - _Metallic: 0.06
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.0286
     - _SmoothnessTextureChannel: 0
-    - _Smothness: 0.741
+    - _Smothness: 0.901
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0

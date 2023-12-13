@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: UG_StageBoosterCollider
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 3defb8d73534e9e4692efc6ca2919f6f,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: e2f712c1102610f40be06a207f277a9d,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export Enter_Far\r\n    .export Enter_Near\r\n   
     .export Enter_Gain\r\n    .export exit_Far\r\n    .export exit_Near\r\n    .export

@@ -110,9 +110,9 @@ public class MainAudioController : UdonSharpBehaviour
 
         get => _noAmplifyID;
     }
-    public override void OnPlayerTriggerEnter(VRCPlayerApi localplayer)
+    public override void OnPlayerTriggerEnter(VRCPlayerApi thisPlayer)
     {
-        if (localplayer.isLocal)
+        if (thisPlayer.isLocal)
         {
             //if (Networking.IsClogged == false && Networking.IsNetworkSettled == true) //make sure network is ready
             {
@@ -150,9 +150,9 @@ public class MainAudioController : UdonSharpBehaviour
         
     }
 
-    public override void OnPlayerTriggerExit(VRCPlayerApi localplayer)
+    public override void OnPlayerTriggerExit(VRCPlayerApi thisPlayer)
     {
-        if (localplayer.isLocal)
+        if (thisPlayer.isLocal)
         {
             //if (Networking.IsClogged == false && Networking.IsNetworkSettled == true) //make sure network is ready
             {

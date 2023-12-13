@@ -8,13 +8,19 @@ using UnityEngine.UI;
 public class RazCatActChanger : UdonSharpBehaviour
 {
     [Header("Items")]
+    public GameObject[] actZeroItems;
+    public GameObject[] actZeroNoItems;
     public GameObject[] actOneItems; //Wires
     public GameObject[] actTwoItems; //Plaets
-    public GameObject[] actThreeItems; //Puildings
+    public GameObject[] actThreeItems;
+    public GameObject[] actThreeTwoItems;//Puildings
     public GameObject[] actFourItems; //Melting
     public GameObject Lava; 
-    public GameObject[] actFiveItems; //Electro
+    public GameObject[] actFiveItems;//Electro
+    public GameObject IncludeError;
+    public GameObject PostProcError;
     public GameObject[] dancerPlace;
+    public GameObject[] dancerPlatforms;
 
     [Header("DancerPlacers")]
     public Transform[] actOneDancerPlaces;
@@ -30,17 +36,26 @@ public class RazCatActChanger : UdonSharpBehaviour
 
     //public Material[] containerMaterials;
 
+    [Header("ForAnimWalls")]
     public Texture[] sovietPosters;
     public Material postersMat;
     public Material simpleBeton;
     private GameObject[] panel = new GameObject[68];
 
+    [Header("Another controllers")]
     public MainAppratController mainController;
     public Animator ceilAnim;
     public Animator wallsAnim;
+    public Animator transformerAnim;
+    public Toggle platforVisualizerToggle;
+    public Toggle hidderItems;
+
+    //Sync
     [UdonSynced] int lateJoinScena;
     private int curretAction;
     private bool deserializing;
+
+    //Trash
     public Material magmaOffeset;
     public float magmaScrollSpeed;
     public Text test ;
@@ -50,6 +65,18 @@ public class RazCatActChanger : UdonSharpBehaviour
     private void Start()
     {
         ceilAnim.Play("Idle");
+
+
+        for (int i = 0; i < actZeroNoItems.Length; i++)
+        {
+            actZeroNoItems[i].SetActive(false);
+        }
+
+        for (int i = 0; i < actZeroItems.Length; i++)
+        {
+            actZeroItems[i].SetActive(true);
+        }
+
         for (int i = 0; i < actOneItems.Length; i++)
         {
             actOneItems[i].SetActive(false);
@@ -62,7 +89,10 @@ public class RazCatActChanger : UdonSharpBehaviour
         {
             actThreeItems[i].SetActive(false);
         }
-
+        for (int i = 0; i < actThreeTwoItems.Length; i++)
+        {
+            actThreeTwoItems[i].SetActive(false);
+        }
         for (int i = 0; i < actFourItems.Length; i++)
         {
             actFourItems[i].SetActive(false);
@@ -74,6 +104,7 @@ public class RazCatActChanger : UdonSharpBehaviour
         }
         Lava.gameObject.SetActive(false);
 
+
         for (int i = 0; i < reflProbes.Length; i++)
         {
             reflProbes[i].RenderProbe();
@@ -82,13 +113,32 @@ public class RazCatActChanger : UdonSharpBehaviour
         if (Networking.IsOwner(gameObject))
             RequestSerialization();
 
-        for (int i = 0; i < mainController.panel.Length; i++)
+       
+
+            for (int i = 0; i < mainController.panel.Length; i++)
         {
             panel[i] = mainController.panel[i]; 
         }
         postersMat.SetTexture("_Tex", sovietPosters[1]);
     }
 
+    public void VisualizeDancerPlatforms()
+    {
+        if (platforVisualizerToggle.isOn)
+        {
+            for (int i = 0; i < dancerPlatforms.Length; i++)
+            {
+                dancerPlatforms[i].GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < dancerPlatforms.Length; i++)
+            {
+                dancerPlatforms[i].GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
+    }
     public override void OnDeserialization()
     {
         deserializing = true;
@@ -121,6 +171,20 @@ public class RazCatActChanger : UdonSharpBehaviour
         }
         test.text = curretAction.ToString();
         deserializing = false;
+    }
+
+    public void PressedButtonZero()
+    {
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "StartActZero");
+
+        if (deserializing)
+            return;
+        if (!Networking.IsOwner(gameObject))
+            Networking.SetOwner(Networking.LocalPlayer, gameObject);
+        lateJoinScena = 0;
+        RequestSerialization();
+
+
     }
 
     public void PressedButtonOne()
@@ -162,6 +226,13 @@ public class RazCatActChanger : UdonSharpBehaviour
         
     }
 
+    public void PressedButtonThreeTwo()
+    {
+        if (lateJoinScena != 3) return;
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "StartActThreeTwo");
+        
+    }
+
     public void PressedButtonFour()
     {
         SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "StartActFour");
@@ -181,18 +252,83 @@ public class RazCatActChanger : UdonSharpBehaviour
             return;
         if (!Networking.IsOwner(gameObject))
             Networking.SetOwner(Networking.LocalPlayer, gameObject);
-        lateJoinScena = 5;
+        //lateJoinScena = 5;
         RequestSerialization();
 
         
     }
 
+    public void PressedButtonSIx()
+    {
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "StartActSix");
+        if (deserializing)
+            return;
+        if (!Networking.IsOwner(gameObject))
+            Networking.SetOwner(Networking.LocalPlayer, gameObject);
+        lateJoinScena = 6;
+        RequestSerialization();
 
 
-    public void StartActOne()
+    }
+
+    public void StartActZero()
     {
         
 
+        for (int i = 0; i < actZeroItems.Length; i++)
+        {
+            actZeroItems[i].SetActive(true);
+        }
+
+        for (int i = 0; i < actOneItems.Length; i++)
+        {
+            actOneItems[i].SetActive(false);
+        }
+
+        for (int i = 0; i < actTwoItems.Length; i++)
+        {
+            actTwoItems[i].SetActive(false);
+        }
+        for (int i = 0; i < actThreeItems.Length; i++)
+        {
+            actThreeItems[i].SetActive(false);
+        }
+        for (int i = 0; i < actThreeTwoItems.Length; i++)
+        {
+            actThreeTwoItems[i].SetActive(false);
+        }
+        for (int i = 0; i < actFourItems.Length; i++)
+        {
+            actFourItems[i].SetActive(false);
+        }
+        Lava.gameObject.SetActive(false);
+        for (int i = 0; i < actFiveItems.Length; i++)
+        {
+            actFiveItems[i].SetActive(false);
+        }
+
+        for (int i = 0; i < actOneDancerPlaces.Length; i++)
+        {
+            dancerPlace[i].transform.position = actOneDancerPlaces[i].position;
+        }
+
+        
+        ceilAnim.Play("Idle");
+        wallsAnim.Play("Idle");
+
+        mainController.includePostProc.isOn = false;
+        transitPostProc.SetActive(true);
+        SendCustomEventDelayedSeconds("SwitchOffTransit", timeSwitchOffTransit);
+
+    }
+
+    public void StartActOne()
+    {
+
+        for (int i = 0; i < actZeroItems.Length; i++)
+        {
+            actZeroItems[i].SetActive(false);
+        }
 
         for (int i = 0; i < actOneItems.Length; i++)
         {
@@ -207,7 +343,10 @@ public class RazCatActChanger : UdonSharpBehaviour
         {
             actThreeItems[i].SetActive(false);
         }
-
+        for (int i = 0; i < actThreeTwoItems.Length; i++)
+        {
+            actThreeTwoItems[i].SetActive(false);
+        }
         for (int i = 0; i < actFourItems.Length; i++)
         {
             actFourItems[i].SetActive(false);
@@ -237,7 +376,10 @@ public class RazCatActChanger : UdonSharpBehaviour
 
         public void StartActTwo()
     {
-                
+        for (int i = 0; i < actZeroItems.Length; i++)
+        {
+            actZeroItems[i].SetActive(false);
+        }
 
         for (int i = 0; i < actOneItems.Length; i++)
         {
@@ -253,7 +395,10 @@ public class RazCatActChanger : UdonSharpBehaviour
         {
             actThreeItems[i].SetActive(false);
         }
-
+        for (int i = 0; i < actThreeTwoItems.Length; i++)
+        {
+            actThreeTwoItems[i].SetActive(false);
+        }
         for (int i = 0; i < actFourItems.Length; i++)
         {
             actFourItems[i].SetActive(false);
@@ -281,7 +426,10 @@ public class RazCatActChanger : UdonSharpBehaviour
 
         public void StartActThree()
     {
-        ceilAnim.Play("Idle");
+        for (int i = 0; i < actZeroItems.Length; i++)
+        {
+            actZeroItems[i].SetActive(false);
+        }
         for (int i = 0; i < actOneItems.Length; i++)
         {
             actOneItems[i].SetActive(false);
@@ -292,11 +440,11 @@ public class RazCatActChanger : UdonSharpBehaviour
         {
             actTwoItems[i].SetActive(false);
         }
-        for (int i = 0; i < actThreeItems.Length; i++)
+        
+        for (int i = 0; i < actThreeTwoItems.Length; i++)
         {
-            actThreeItems[i].SetActive(true);
+            actThreeTwoItems[i].SetActive(false);
         }
-
         for (int i = 0; i < actFourItems.Length; i++)
         {
             actFourItems[i].SetActive(false);
@@ -306,7 +454,10 @@ public class RazCatActChanger : UdonSharpBehaviour
         {
             actFiveItems[i].SetActive(false);
         }
-
+        for (int i = 0; i < actThreeItems.Length; i++)
+        {
+            actThreeItems[i].SetActive(true);
+        }
         for (int i = 0; i < actThreeDancerPlaces.Length; i++)
         {
             dancerPlace[i].transform.position = actThreeDancerPlaces[i].position;
@@ -314,7 +465,7 @@ public class RazCatActChanger : UdonSharpBehaviour
 
         mainController.panelLightMode.value = 0;
 
-        ceilAnim.Play("JastOff");
+        ceilAnim.Play("Idle");
         wallsAnim.Play("OpenAndClose");
 
         for (int i = 0; i < panel.Length; i++)
@@ -329,6 +480,27 @@ public class RazCatActChanger : UdonSharpBehaviour
         SendCustomEventDelayedSeconds("SwitchOffTransit", timeSwitchOffTransit);
     }
 
+    public void StartActThreeTwo()
+    {
+        for (int i = 0; i < actZeroItems.Length; i++)
+        {
+            actZeroItems[i].SetActive(false);
+        }
+        for (int i = 0; i < actThreeItems.Length; i++)
+        {
+            actThreeItems[i].SetActive(false);
+        }
+        for (int i = 0; i < actThreeTwoItems.Length; i++)
+        {
+            actThreeTwoItems[i].SetActive(true);
+        }
+
+        ceilAnim.Play("BuildCity");
+        wallsAnim.Play("OpenAndClose");
+        transitPostProc.SetActive(true);
+        SendCustomEventDelayedSeconds("SwitchOffTransit", timeSwitchOffTransit);
+    }
+
     public void TimeToChangePoster()
     {
         int rand = Random.Range(0, 19);
@@ -337,7 +509,10 @@ public class RazCatActChanger : UdonSharpBehaviour
     }
     public void StartActFour()
     {
-        
+        for (int i = 0; i < actZeroItems.Length; i++)
+        {
+            actZeroItems[i].SetActive(false);
+        }
         for (int i = 0; i < actOneItems.Length; i++)
         {
             actOneItems[i].SetActive(false);
@@ -351,7 +526,10 @@ public class RazCatActChanger : UdonSharpBehaviour
         {
             actThreeItems[i].SetActive(false);
         }
-
+        for (int i = 0; i < actThreeTwoItems.Length; i++)
+        {
+            actThreeTwoItems[i].SetActive(false);
+        }
         for (int i = 0; i < actFourItems.Length; i++)
         {
             actFourItems[i].SetActive(true);
@@ -384,6 +562,8 @@ public class RazCatActChanger : UdonSharpBehaviour
         SendCustomEventDelayedSeconds("SwitchOffTransit", timeSwitchOffTransit);
     }
 
+    
+
     public void LavaReady()
     {
         mainController.postProcHue.value = 0.02f;
@@ -400,7 +580,10 @@ public class RazCatActChanger : UdonSharpBehaviour
 
     public void StartActFive()
     {
-        ceilAnim.Play("Idle");
+        for (int i = 0; i < actZeroItems.Length; i++)
+        {
+            actZeroItems[i].SetActive(false);
+        }
         for (int i = 0; i < actOneItems.Length; i++)
         {
             actOneItems[i].SetActive(false);
@@ -413,6 +596,10 @@ public class RazCatActChanger : UdonSharpBehaviour
         for (int i = 0; i < actThreeItems.Length; i++)
         {
             actThreeItems[i].SetActive(false);
+        }
+        for (int i = 0; i < actThreeTwoItems.Length; i++)
+        {
+            actThreeTwoItems[i].SetActive(false);
         }
 
         for (int i = 0; i < actFourItems.Length; i++)
@@ -433,8 +620,9 @@ public class RazCatActChanger : UdonSharpBehaviour
 
         mainController.panelLightMode.value = 0;
 
-        ceilAnim.Play("CeilClosing");
+        ceilAnim.Play("JastOff");
         wallsAnim.Play("Idle");
+        transformerAnim.Play("DoorClose");
 
         mainController.postProcHue.value = 0.55f;
         mainController.postProcPower.value = 0f;
@@ -446,20 +634,52 @@ public class RazCatActChanger : UdonSharpBehaviour
         SendCustomEventDelayedSeconds("SwitchOffTransit", timeSwitchOffTransit);
     }
 
+    public void StartActSix()
+    {
+        transformerAnim.Play("OpenDoor");
+    }
 
-
+    public void ErrorMessage()
+    {
+        PostProcError.SetActive(true);
+    }
     public void SwitchOffTransit()
     {
-        
+        for (int i = 0; i < actZeroNoItems.Length; i++)
+        {
+            if (lateJoinScena == 0)
+            {
+                actZeroNoItems[i].SetActive(false);
+            }else
+            {
+                actZeroNoItems[i].SetActive(true);
+            }
+        }
         transitPostProc.SetActive(false);
         for (int i = 0; i < reflProbes.Length; i++)
         {
             reflProbes[i].RenderProbe();
         }
+
+        
     }
 
-    public void Update()
+    public void HideItems()
     {
-        if(lateJoinScena==4) magmaOffeset.SetTextureOffset("_MainTex", new Vector2(Time.time * magmaScrollSpeed, 0));
+        if (hidderItems.isOn)
+        {
+            for (int i = 0; i < actZeroNoItems.Length; i++)
+            {
+                actZeroNoItems[i].GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < actZeroNoItems.Length; i++)
+            {
+                actZeroNoItems[i].GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
     }
+
 }

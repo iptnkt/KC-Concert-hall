@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 8fad3b33f86cbe5469e4d51d4e1669ca
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _AlphaDrawning: {fileID: 2800000, guid: 4ee4979b57232164286d0f57d34fad9b, type: 3}
+  - _T_Voronoi_Noise: {fileID: 2800000, guid: 71c08610deb243144888703479205c12, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

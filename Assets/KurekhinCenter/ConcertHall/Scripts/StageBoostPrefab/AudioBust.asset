@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: AudioBust
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 79bfca6dbd12a4a4787acf34e62737a0,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 30c8f3169da17644f9f3a0d25546ba5d,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export SliderFarOS\r\n    .export SliderFar\r\n   
     .export SliderNear\r\n    .export SliderGain\r\n    .export SliderGainOS\r\n   

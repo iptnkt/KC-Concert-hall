@@ -60,7 +60,7 @@ public class AdminPanel : UdonSharpBehaviour
             }
         }
 
-        for (int i = 0; i < dropdowns.Length; i++)
+        for (int i = 0; i < dropdowns.Length; i++)  
         {
             if (dropdowns[i] != null)
             {

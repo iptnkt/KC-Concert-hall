@@ -74,7 +74,7 @@ Material:
     - _AudioHueShift: 0
     - _AutogainDerate: 0.1
     - _BPM: 128
-    - _Band: 0
+    - _Band: 1
     - _BandMode: 0
     - _BandMultiplier: 1
     - _Bass: 1

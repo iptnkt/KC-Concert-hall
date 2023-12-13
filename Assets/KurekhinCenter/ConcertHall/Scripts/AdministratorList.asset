@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: AdministratorList
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: c2a915fb3af0bc54988a6d24e096c674,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 786dc915c7cc43c4b80dbe81d5a85d84,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export AdminList\r\n    .export Include\r\n   
     \r\n    __Boolean_0: %SystemBoolean, null\r\n    __index_0: %SystemInt32, null\r\n   
@@ -22,15 +22,16 @@ MonoBehaviour:
     %SystemInt32, null\r\n    __end_0: %SystemInt32, null\r\n    __step_0: %SystemInt32,
     null\r\n    __instance_0: %SystemStringArray, null\r\n    __instance_2: %VRCSDKBaseVRCPlayerApi,
     null\r\n    __instance_3: %UnityEngineGameObject, this\r\n    __value_0: %SystemBoolean,
-    null\r\n    __Boolean_2: %SystemBoolean, null\r\n    AdminList: %SystemStringArray,
-    null\r\n    IsAdmin: %SystemBoolean, null\r\n    Include: %UnityEngineGameObject,
-    this\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n    .export _onPlayerJoined\r\n   
-    \r\n    _onPlayerJoined:\r\n    \r\n        PUSH, __Boolean_0\r\n        PUSH,
-    IsAdmin\r\n        COPY\r\n        PUSH, AdminList\r\n        PUSH, __instance_0\r\n       
-    COPY\r\n        PUSH, __instance_0\r\n        PUSH, __end_0\r\n        EXTERN,
-    \"SystemStringArray.__get_Length__SystemInt32\"\r\n        PUSH, __start_0\r\n       
-    PUSH, __index_0\r\n        COPY\r\n        PUSH, __index_0\r\n        PUSH, __end_0\r\n       
-    PUSH, __condition_0\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n       
+    null\r\n    __Boolean_2: %SystemBoolean, null\r\n    __instance_4: %UnityEngineGameObject,
+    this\r\n    __value_1: %SystemBoolean, null\r\n    __Boolean_3: %SystemBoolean,
+    null\r\n    AdminList: %SystemStringArray, null\r\n    IsAdmin: %SystemBoolean,
+    null\r\n    Include: %UnityEngineGameObject, this\r\n\r\n.data_end\r\n\r\n.code_start\r\n\r\n   
+    .export _onPlayerJoined\r\n    \r\n    _onPlayerJoined:\r\n    \r\n        PUSH,
+    __Boolean_0\r\n        PUSH, IsAdmin\r\n        COPY\r\n        PUSH, AdminList\r\n       
+    PUSH, __instance_0\r\n        COPY\r\n        PUSH, __instance_0\r\n        PUSH,
+    __end_0\r\n        EXTERN, \"SystemStringArray.__get_Length__SystemInt32\"\r\n       
+    PUSH, __start_0\r\n        PUSH, __index_0\r\n        COPY\r\n        PUSH, __index_0\r\n       
+    PUSH, __end_0\r\n        PUSH, __condition_0\r\n        EXTERN, \"SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean\"\r\n       
     PUSH, __condition_0\r\n        JUMP_IF_FALSE, 0x000001A8\r\n        PUSH, AdminList\r\n       
     PUSH, __instance_1\r\n        COPY\r\n        PUSH, AdminList\r\n        PUSH,
     __instance_0\r\n        COPY\r\n        PUSH, __index_0\r\n        PUSH, __Int32_0\r\n       
@@ -46,7 +47,11 @@ MonoBehaviour:
     EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\r\n       
     JUMP, 0x00000180\r\n        PUSH, __index_0\r\n        PUSH, __step_0\r\n       
     PUSH, __index_0\r\n        EXTERN, \"SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32\"\r\n       
-    JUMP, 0x00000054\r\n        JUMP, 0xFFFFFFFC\r\n    \r\n\r\n.code_end\r\n"
+    JUMP, 0x00000054\r\n        JUMP, 0xFFFFFFFC\r\n    \r\n    .export _start\r\n   
+    \r\n    _start:\r\n    \r\n        PUSH, Include\r\n        PUSH, __instance_4\r\n       
+    COPY\r\n        PUSH, __Boolean_3\r\n        PUSH, __value_1\r\n        COPY\r\n       
+    PUSH, __instance_4\r\n        PUSH, __value_1\r\n        EXTERN, \"UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid\"\r\n       
+    JUMP, 0xFFFFFFFC\r\n    \r\n\r\n.code_end\r\n"
   assemblyError: 
   graphData:
     name: 
@@ -180,7 +185,7 @@ MonoBehaviour:
         stringValue: 
     - fullName: Get_Variable
       uid: 34e4d74e-5197-40fb-b170-e87444f6c1a6
-      position: {x: 1338, y: -457}
+      position: {x: 1387.55, y: -108.10007}
       nodeUIDs:
       - 
       flowUIDs: []
@@ -191,7 +196,7 @@ MonoBehaviour:
         stringValue: 
     - fullName: SystemStringArray.__Get__SystemInt32__SystemString
       uid: 8e169187-f582-4382-87d7-6373b3acaf03
-      position: {x: 1597, y: -383}
+      position: {x: 1580.85, y: -63.600002}
       nodeUIDs:
       - 34e4d74e-5197-40fb-b170-e87444f6c1a6|0
       - a798a0f0-90a7-4c40-a7a5-77532baee450|0
@@ -203,13 +208,13 @@ MonoBehaviour:
         stringValue: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|0
     - fullName: VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi
       uid: d3ff00ef-4eac-498f-a6d0-88c77df4602e
-      position: {x: 1375, y: -32.440002}
+      position: {x: 1462.3002, y: 197.65}
       nodeUIDs: []
       flowUIDs: []
       nodeValues: []
     - fullName: VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString
       uid: bd931404-662a-4dba-8fd2-4214f9e85129
-      position: {x: 1590, y: -21.039978}
+      position: {x: 1631.3, y: 198.65}
       nodeUIDs:
       - d3ff00ef-4eac-498f-a6d0-88c77df4602e|0
       flowUIDs: []
@@ -218,7 +223,7 @@ MonoBehaviour:
         stringValue: 
     - fullName: SystemString.__Equals__SystemString_SystemString__SystemBoolean
       uid: a4a26b59-2f17-427b-9684-0ee65dc2df50
-      position: {x: 1811, y: -212}
+      position: {x: 1836.3, y: 76.64996}
       nodeUIDs:
       - 8e169187-f582-4382-87d7-6373b3acaf03|0
       - bd931404-662a-4dba-8fd2-4214f9e85129|0
@@ -230,7 +235,7 @@ MonoBehaviour:
         stringValue: 
     - fullName: Variable_UnityEngineGameObject
       uid: 93d8f2b1-8a78-47af-930c-f1a253a91c55
-      position: {x: 0, y: 0}
+      position: {x: -2374.3752, y: 285.02533}
       nodeUIDs:
       - 
       - 
@@ -283,6 +288,7 @@ MonoBehaviour:
       - a4a26b59-2f17-427b-9684-0ee65dc2df50|0
       flowUIDs:
       - 99440362-dbf5-4810-8d77-d25b7ca30617
+      - 
       nodeValues:
       - unityObjectValue: {fileID: 0}
         stringValue: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
@@ -299,7 +305,7 @@ MonoBehaviour:
           PublicKeyToken=b77a5c561934e089|True
     - fullName: Const_SystemBoolean
       uid: dee28585-6412-4f37-9911-eab26e42252a
-      position: {x: 2317.433, y: -174.9006}
+      position: {x: 2364.61, y: -237.15756}
       nodeUIDs:
       - 
       flowUIDs: []
@@ -307,7 +313,49 @@ MonoBehaviour:
       - unityObjectValue: {fileID: 0}
         stringValue: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089|True
+    - fullName: Const_SystemBoolean
+      uid: 34e62f89-3e93-427b-82ee-334882cb1e62
+      position: {x: 2555.8, y: 401.90884}
+      nodeUIDs:
+      - 
+      flowUIDs: []
+      nodeValues:
+      - unityObjectValue: {fileID: 0}
+        stringValue: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089|False
+    - fullName: Get_Variable
+      uid: d556d14a-efb8-43fe-8a17-5792e7af2f21
+      position: {x: 2395.19, y: 301.225}
+      nodeUIDs:
+      - 
+      flowUIDs: []
+      nodeValues:
+      - unityObjectValue: {fileID: 0}
+        stringValue: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|93d8f2b1-8a78-47af-930c-f1a253a91c55
+      - unityObjectValue: {fileID: 0}
+        stringValue: 
+    - fullName: UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid
+      uid: 2587723e-c467-4ecf-befc-b5d5dc911797
+      position: {x: 2675.02, y: 272.14496}
+      nodeUIDs:
+      - d556d14a-efb8-43fe-8a17-5792e7af2f21
+      - 34e62f89-3e93-427b-82ee-334882cb1e62
+      flowUIDs:
+      - 
+      nodeValues:
+      - unityObjectValue: {fileID: 0}
+        stringValue: 
+      - unityObjectValue: {fileID: 0}
+        stringValue: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089|True
+    - fullName: Event_Start
+      uid: 0387935e-0c64-4a9e-bfaf-534cb8269db3
+      position: {x: 2557.435, y: 223.01752}
+      nodeUIDs: []
+      flowUIDs:
+      - 2587723e-c467-4ecf-befc-b5d5dc911797
+      nodeValues: []
     updateOrder: 0
   graphElementData: []
   version: 1.0.0
-  showAssembly: 0
+  showAssembly: 1
