@@ -22,7 +22,7 @@ namespace ArchiTech
         }
 #else
         public TVManagerV2 tv;
-        public VRCAudioLink.AudioLink audioLinkInstance;
+        public AudioLink.AudioLink audioLinkInstance;
         public string speakerName = "AudioLink";
         [Tooltip("Optionally specify world music to pause while the TV is playing. Will resume world music a given number of seconds after TV stops playing.")]
         public AudioSource worldMusic;

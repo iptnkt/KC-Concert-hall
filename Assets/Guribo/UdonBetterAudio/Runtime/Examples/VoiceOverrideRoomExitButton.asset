@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: VoiceOverrideRoomExitButton
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 92e0304c144302c4699fe1ef9d13f329,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: b94ca94f457c04c4f85a7b07e9b405d2,
     type: 2}
   udonAssembly: 
   assemblyError: 

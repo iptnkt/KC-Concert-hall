@@ -77,9 +77,11 @@ public class MainAppratController : UdonSharpBehaviour
     void Start()
     {
         panelSaturate.value = 1;
-        panelPower.value = 1;
+        panelPower.value = 0.8732116f;
+        
+
         _panelModeChange();
-        _OnPanelColorChange();
+        //_OnPanelColorChange();
         _OnProjectorColorChange();
         _OnPostProcChange();
         _ProjectorAudioLink();
@@ -87,7 +89,6 @@ public class MainAppratController : UdonSharpBehaviour
         _panelAnimChange();
         _IncludeProjectors();
         _projectorTargetChange();
-
 
     }
 
@@ -102,7 +103,12 @@ public class MainAppratController : UdonSharpBehaviour
         Color panCol = Color.HSVToRGB(panHue, panSat, 1);
 
         panCol *= Mathf.Pow(panPow, 3.3f);
+        if (ActualMat == null)
+        {
+            ActualMat = panelMaterial[0];
+        } 
         ActualMat.SetColor("_EmissionColor", panCol);
+        
 
     }
     public void _panelModeChange()

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: UITeleport
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: fbd8a78ff70e64a44b25399698828f46,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 36ffa055c71a9cb4995e7acc4ef899d4,
     type: 2}
   udonAssembly: 
   assemblyError: 

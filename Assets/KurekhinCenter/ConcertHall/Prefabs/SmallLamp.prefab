@@ -125,10 +125,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UID: 862116380
-  color: {r: 1, g: 1, b: 1, a: 1}
-  intensity: 0.2
+  color: {r: 1, g: 0.8570511, b: 0.7122642, a: 1}
+  intensity: 1
   shadowSpread: 0.1
-  cutoff: 11
+  cutoff: 20
   realisticFalloff: 0
   legacySampling: 1
   samples: 8

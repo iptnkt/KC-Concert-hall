@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: playsoundbyevent
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 6251e859307963647b277557fa9d4fbd,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: d1f9715398ee4664689becf8750ec0d6,
     type: 2}
   udonAssembly: 
   assemblyError: 

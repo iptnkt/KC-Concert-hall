@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: CanvasLocker
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 38a58bd63f7970c43a84f612daa67fe6,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 72f2ab201e46fc84aa2517f41db7a102,
     type: 2}
   udonAssembly: 
   assemblyError: 
