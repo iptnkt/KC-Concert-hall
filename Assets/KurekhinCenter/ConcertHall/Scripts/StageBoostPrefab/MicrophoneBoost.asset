@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: MicrophoneBoost
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 1fb611ac1395e634880b0c4e93f9945d,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: c62695426b337a04f967ec155b929c81,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export AudioBoostZone\r\n    .export PickUp\r\n   
     .export EventPickup\r\n    .export WhoHoldIt\r\n    .export EventDrop\r\n   

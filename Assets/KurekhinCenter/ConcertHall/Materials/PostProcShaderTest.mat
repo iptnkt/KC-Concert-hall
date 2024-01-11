@@ -8,12 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PostProcShaderTest
-  m_Shader: {fileID: 4800000, guid: e83320fb88992c84999a98621f02e642, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5180e26b38df93d449abec6a007fa353, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 4000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -66,8 +66,8 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HueOffset: 2.05
-    - _Light: 2.47
+    - _HueOffset: 1
+    - _Light: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1

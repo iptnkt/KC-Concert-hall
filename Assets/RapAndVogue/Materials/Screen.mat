@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: de79bdce65becd64b9abcbde328d2885, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9ad1abbc398c33947a5cfa2699a82477, type: 3}
+        m_Texture: {fileID: 2800000, guid: e3cad913bc945a94596e4f740669d750, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -61,7 +61,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Subpixel:
         m_Texture: {fileID: 2800000, guid: 7ab922f805499754d8c0303536e855f1, type: 3}
-        m_Scale: {x: 40, y: 40}
+        m_Scale: {x: 30, y: 30}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
